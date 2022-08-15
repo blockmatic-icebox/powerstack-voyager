@@ -1,4 +1,5 @@
 FROM node:14 as builder
+ENV NODE_ENV='development'
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn*.lock .
