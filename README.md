@@ -1,19 +1,18 @@
-# PowerStack NodeJS Starter
+# PowerStack Voyager
 
-NodeJS Starter Template
+Represent any GraphQL API as an interactive graph. It's time to finally see the graph behind GraphQL.
 
 ⚡️ [PowerStack: a powerful fullstack development framework](https://powerstack.xyz).
 
 _Disclaimer: This is a work in progress. Will be finalized soon._
 
+This server is built on top of [IvanGoncharov/graphql-voyager](https://github.com/IvanGoncharov/graphql-voyager)
+
 ## Yarn
 
 ```
-# Install nodemon typescript for dev
-yarn --ignore-optional global add ts-node-dev typescript
-
 # Install project dependencies
-yarn install
+yarn
 
 # Development server with reload
 yarn dev
@@ -24,16 +23,22 @@ yarn dev
 
 ```
 # Build the image
-docker build -t image_name .
+docker build -t powerstack-voyager:local .
 
 # Start a container
-docker run -p 3000:3000 -d image_name
+docker run --name powerstack-voyager --env-file .env -p 3307:3307 -d powerstack-voyager:local
 
 # Get container ID
-docker ps
+docker ps -aqf "name=^powerstack-voyager$"
 
 # Print app output
-docker logs <container id>
+docker logs -f powerstack-voyager
+
+# Stop, start, restart, kill
+docker stop powerstack-voyager
+docker start powerstack-voyager
+docker restart powerstack-voyager
+docker kill powerstack-voyager
 ```
 
 ## Contributing
