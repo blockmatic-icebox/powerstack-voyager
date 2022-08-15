@@ -1,5 +1,6 @@
 FROM node:14 as builder
 ENV NODE_ENV='development'
+RUN yarn --ignore-optional global add ts-node-dev typescript
 WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn*.lock .
