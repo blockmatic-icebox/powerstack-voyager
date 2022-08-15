@@ -39,6 +39,8 @@
   "dependencies": {
     "@prisma/client": "^3.11.1",
     "env-var": "^7.0.1",
+    "express": "^4.18.1",
+    "graphql-voyager": "^1.0.0-rc.31",
     "tslog": "^3.2.2"
   }
 }

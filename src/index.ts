@@ -1,16 +1,16 @@
-import * as http from 'http'
 import { config } from './config'
 import { log } from './library/logger'
+import express from 'express'
+import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
 
-const indexer = async () => {
-  log.info('Subscribing to blockchain data ...')
-}
+const app = express()
 
-const server = http.createServer((_req, res) => {
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/plain')
-  res.end('Service running')
-})
+app.use(
+  '/',
+  voyagerMiddleware({
+    endpointUrl: 'https://api.powerstack.xyz/v1/graphql',
+    // headersJS: { 'x-hasura-user-role': 'anon' }.toString(),
+  }),
+)
 
-indexer()
-server.listen(config.port, config.hostname, () => log.info(`Server running at http://${config.hostname}:${config.port}/`))
+app.listen(config.port, config.hostname, () => log.info(`Server running at http://${config.hostname}:${config.port}/`))
