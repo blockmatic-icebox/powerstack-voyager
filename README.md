@@ -6,6 +6,8 @@ Represent any GraphQL API as an interactive graph. It's time to finally see the 
 
 _Disclaimer: This is a work in progress. Will be finalized soon._
 
+Demo at [voyager.powerstack.xyz](https://voyager.powerstack.xyz)
+
 This server is built on top of [IvanGoncharov/graphql-voyager](https://github.com/IvanGoncharov/graphql-voyager)
 
 ## Yarn
