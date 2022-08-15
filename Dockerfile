@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY package.json .
 COPY yarn*.lock .
 COPY . .
-RUN yarn install
+RUN yarn --ignore-optional --frozen-lockfile install
 RUN yarn build
 
 FROM node:16-slim as runtime
